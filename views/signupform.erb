@@ -1,0 +1,15 @@
+<h1>Gambling Site</h1>
+
+<h2>To create an account please fill in the details below </h2>
+
+<% if @error %>
+  <p style="color: red;"><%= @error %></p>
+<% end %>
+
+<form action='/adduser' method="get">
+Username: <input name="username"></input><br><br>
+Password: <input name="password"></input><br><br>
+<input type="submit" name="submit"></input>
+</form>
+
+<p>Already have an account? <a href="/login">Login here</a></p>

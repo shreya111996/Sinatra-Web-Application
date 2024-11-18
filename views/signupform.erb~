@@ -1,0 +1,9 @@
+<h1>Gambling Site</h1>
+
+<h2>To create an account please fill in the details below </h2>
+
+<form action='/adduser' method="get">
+Username: <input name="username"></input><br><br>
+Password: <input name="password"></input><br><br>
+<input type="submit" name="submit"></input>
+</form>

@@ -1,0 +1,55 @@
+<h1>Gambling Site</h1>
+  
+  <p>Place your bet on dice number (1 to 6)</p>
+
+  <% if @error %>
+     <p style="color: red;"><%= @error %></p>
+  <% end %>
+  
+  <form action="/bet" method="get">
+    <label>Bet Money</label><br>
+    <input type="text" name="bet_money"><br><br>
+
+    <label>On</label><br>
+    <input type="text" name="bet_number"><br><br>
+
+    <button type="submit">Bet</button>
+  </form>
+  
+  <h2>Current Bet Summary</h2>
+
+  <label>Dice Roll Result</label><br>
+  <input type="text" value="<%= @roll %>" readonly><br><br>
+
+  <label>Bet Outcome</label><br>
+  <input type="text" value="<%= @result %>" readonly><br><br>
+  
+  <label>Total win count</label><br>
+  <input type="text" value="<%= session[:current_win_count] || 0 %>" readonly><br><br>
+
+  <label>Total loss count</label><br>
+  <input type="text" value="<%= session[:current_loss_count] || 0 %>" readonly><br><br>
+
+  <label>Total money won</label><br>
+  <input type="text" value="<%= session[:current_win_money] || 0 %>" readonly><br><br>
+
+  <label>Total money lost</label><br>
+  <input type="text" value="<%= session[:current_loss_money] || 0 %>" readonly><br><br>
+
+  <label>Total profit</label><br>
+  <input type="text" value="<%= session[:current_profit] || 0 %>" readonly><br><br>
+
+  <h2>Account Summary</h2>
+  
+  <label>User's Total Win:</label>
+  <input type="text" value="<%= @user.totalwin %>" readonly><br><br>
+
+  <label>User's Total Loss:</label>
+  <input type="text" value="<%= @user.totalloss %>" readonly><br><br>
+
+  <label>User's Total Profit:</label>
+  <input type="text" value="<%= @user.totalprofit %>" readonly><br><br>
+       
+  <form action="/logout" method="get">
+    <button type="submit">Logout</button>
+  </form>
